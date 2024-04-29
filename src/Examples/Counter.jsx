@@ -1,12 +1,13 @@
 
 import { useDispatch, useSelector } from 'react-redux';
 import { decrement, increment, reset } from '../redux/counter/counter.actions';
+import { store } from '../redux/store';
 
 
 function Counter() {
     const dispatch = useDispatch();
-    const message = useSelector((store) => store.message);
-    const counter = useSelector((store) => store.counter);
+    const message = useSelector((store) => store.counter.message);
+    const counter = useSelector((store) => store.counter.counter);
 
 
 

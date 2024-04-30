@@ -1,10 +1,9 @@
-import { applyMiddleware, combineReducers, legacy_createStore } from "redux";
-import { authReducer } from "./counter/counter.reducer";
-import { userReducer } from "./users/user.reducer";
-import { thunk } from "redux-thunk";
-
-const rootReducer = combineReducers({
-    counter: authReducer,
-    user: userReducer
+import { configureStore } from '@reduxjs/toolkit'
+import counterReducer from "./counter/counter.slice"
+import todoReducer from "./Todo/todo.slice"
+export const store = configureStore({
+    reducer: {
+        counter: counterReducer,
+        todo: todoReducer
+    }
 })
-export const store = legacy_createStore(rootReducer, applyMiddleware(thunk))
